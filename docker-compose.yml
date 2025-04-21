@@ -1,0 +1,26 @@
+services:
+  remix-quantumsenses:
+    image: remix-dev_quantumsenses
+    ports:
+      - "5173:5173"
+    volumes:
+      - .:/app
+      - node_modules:/app/node_modules
+    environment:
+      - NODE_ENV=development
+    command: npm run dev
+    networks:
+      - traefik-net
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.remix-quantumsenses.rule=Host(`dev.quantumsenses.com`)"
+      - "traefik.http.routers.remix-quantumsenses.entrypoints=https"
+      - "traefik.http.routers.remix-quantumsenses.tls.certresolver=letsencrypt"
+      - "traefik.http.services.remix-quantumsenses.loadbalancer.server.port=5173"
+
+networks:
+  traefik-net:
+    external: true
+
+volumes:
+  node_modules:

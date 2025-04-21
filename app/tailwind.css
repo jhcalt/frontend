@@ -1,0 +1,191 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
+
+@font-face {
+    font-family: 'Tiempos';
+    src: url('/fonts/test-tiempos-text-regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Tiempos-Bold';
+    src: url('/fonts/test-signifier-bold.woff2') format('woff2');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gotham';
+  src: url("/fonts/GothamBook.ttf") format('ttf');
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+/*COLOR PALETTE
+ - lilypad green: #7ebf8e
+ - ivory white: #fafaf8 
+ - egg shell white: #f6f1eb
+ - slate grey: #141413
+ - exa blue: #254bf1
+ - exa orange: #ff2044
+ - exa yellow light: #fef3c7
+ - exa offwhite: #faf7ec
+ - my offwhite: #fbf9f4 
+ - grey: #1f2937
+*/
+@layer base {
+  :root {
+    --background: #fefdfa;
+    --foreground: #444444;
+
+    --grey: #1f2937;
+
+    --primary: #3549ec;
+    --primary-foreground: #fafafa;
+
+    --secondary: #ff3153;
+    --secondary-foreground: #1f2937;
+
+    --accent: #c1faff;
+    --accent-foreground: #1f2937;
+
+    --card: #ffffff;
+    --card-foreground: #1f2937;
+
+    --popover: #ffffff;
+    --popover-foreground: #1f2937;
+
+    --muted: #f3f4f6;
+    --muted-foreground: #737373;
+
+    --destructive: #e63946;
+    --destructive-foreground: #fafafa;
+
+    --border: #e5e7eb;
+    --input: #e5e7eb;
+    --ring: #1f2937;
+
+    --radius: 0.5rem;
+
+    --chart-1: #ff8243;
+    --chart-2: #26a69a;
+    --chart-3: #2d4f73;
+    --chart-4: #f6d365;
+    --chart-5: #ffc857;
+  }
+
+  .dark {
+    --background: #1f2937;
+    --foreground: #fafafa;
+
+    --primary: #fafafa;
+    --primary-foreground: #1f2937;
+
+    --secondary: #262626;
+    --secondary-foreground: #fafafa;
+
+    --accent: #262626;
+    --accent-foreground: #fafafa;
+
+    --card: #1f2937;
+    --card-foreground: #fafafa;
+
+    --popover: #1f2937;
+    --popover-foreground: #fafafa;
+
+    --muted: #262626;
+    --muted-foreground: #9ca3af;
+
+    --destructive: #6e1111;
+    --destructive-foreground: #fafafa;
+
+    --border: #262626;
+    --input: #262626;
+    --ring: #d1d5db;
+
+    --chart-1: #338aff;
+    --chart-2: #28b485;
+    --chart-3: #ffb74d;
+    --chart-4: #b288ff;
+    --chart-5: #ff4f81;
+  }
+}
+
+@layer base {
+  
+  body {
+    @apply bg-background;
+    font-family: geist, sans-serif;
+  }
+
+	h1, h2, h3, h4, h5, h6 {
+		font-family: tiempos, serif;
+		/* font-weight: bold; */
+	}
+
+  p {
+    font-family: geist, sans-serif;
+  }
+}
+
+/* Custom scrollbar styles */
+::-webkit-scrollbar {
+  width: 6px; /* Thinner scrollbar */
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent; /* Light grey track */
+   border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888; /* Darker grey thumb */
+  border-radius: 10px; /* Rounded corners */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Even darker on hover */
+}
+
+/* Repository dropdown scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #e5e7eb;
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #d1d5db;
+}
+
+/* Animations for ChatArtifact component */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes pulse-subtle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.85; }
+}
+
+.animate-blink {
+  animation: blink 0.8s infinite;
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 2s infinite;
+}
